@@ -9,7 +9,7 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="regist,regist_t" />
+	<context:component-scan base-package="regist,regist_t,login,login_t" />
 
 	<bean id="viewResolver1"
 		class="org.springframework.web.servlet.view.BeanNameViewResolver" />

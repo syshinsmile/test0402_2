@@ -1,6 +1,5 @@
 package regist_t;
 
-import org.springframework.validation.Errors;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;

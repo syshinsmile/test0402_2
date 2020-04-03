@@ -19,6 +19,10 @@
 		<property name="mapperLocations" value="classpath:sql/*.xml"/>
 		<property name="configLocation" value="classpath:mybatisConfig.xml" />
 	</bean>	
-	<bean id="dao" class="regist.RegistDao" p:sqlSessionFactory-ref="sqlSessionFactory" />
+	
+	<bean id="sDao" class="regist.RegistDao" p:sqlSessionFactory-ref="sqlSessionFactory" />
 	<bean id="tDao" class="regist_t.RegistDao_t" p:sqlSessionFactory-ref="sqlSessionFactory" />
+	<bean id="lDao" class="login.LoginDao" p:sqlSessionFactory-ref="sqlSessionFactory" />
+	<bean id="lDao_t" class="login_t.LoginDao_t" p:sqlSessionFactory-ref="sqlSessionFactory" />
+	
 </beans>

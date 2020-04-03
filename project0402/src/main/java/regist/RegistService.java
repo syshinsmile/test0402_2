@@ -24,12 +24,10 @@ public class RegistService
         return this.e = (List<String>)this.dao.getEmail();
     }
     
-    public Errors checkEmail(final Object target, final Errors errors) {
+    public Errors checkEmail(Object target, Errors errors) {
         final MemberInfo memberInfo = (MemberInfo)target;
-        if (memberInfo.getS_tag() == null || memberInfo.getS_tag().length() == 0) {
-            errors.rejectValue("s_tag", "required");
-        }
-        this.e = this.getEmail();
+        
+        e = getEmail();
         final String s_email = memberInfo.getS_email();
         if (s_email.equals("")) {
             errors.rejectValue("s_email", "required");
