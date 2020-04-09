@@ -24,20 +24,20 @@ public class LoginController {
 	public LoginCommand formBacking() {return new LoginCommand();}
 	
 	@RequestMapping(method=RequestMethod.GET)
-	public String form() {return "login/loginForm";}
+	public String form() {return "loginForm";}
 	
 	@RequestMapping(method=RequestMethod.POST)
 	public String submit(@ModelAttribute("login") LoginCommand loginCommand,BindingResult result,HttpSession session,HttpServletResponse res) 
 		throws IOException {
 		vali.validate(loginCommand,result);
 		if(result.hasErrors()) {
-			return "login/loginForm";
+			return "loginForm";
 		}
 		String e = loginCommand.getS_email();
 		
 		session.setAttribute("nowLogin",e );
 		
-		return "login/loginSuccess";
+		return "loginSuccess";
 		/*
 		 * Cookie c = createCookie("nowLogin",e,req.getContextPath()); res.addCookie(c);
 		 */

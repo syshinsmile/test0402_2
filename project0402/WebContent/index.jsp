@@ -8,7 +8,9 @@
 	<a href="student/login/login">학생 로그인</a><br>
 	<a href="teacher/login_t/login">선생님 로그인 </a><br><br>
 	
-	<a href="test.jsp"> session에 저장한 값 저장 되었는지 test</a>
+	<a href="test.jsp"> session에 저장한 값 저장 되었는지 test</a><br><br>
 	
+	<a href="submission.do">파일 업로더</a><br><br>
+
 </body>
 </html>

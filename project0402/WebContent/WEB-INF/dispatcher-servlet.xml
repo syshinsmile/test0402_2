@@ -8,11 +8,32 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="50000000" />		
+	</bean>
+
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles_def/tilesdef.xml</value>
+			</list>
+		</property>
+		<property name="preparerFactoryClass"
+			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory" />
+	</bean>
+
+	<bean id="menuPreparer" class="spring.tiles.MenuPreparer" />
+
+
 	<context:annotation-config />
-	<context:component-scan base-package="regist,regist_t,login,login_t" />
+	<context:component-scan
+		base-package="regist,regist_t,login,login_t,test" />
 
 	<bean id="viewResolver1"
 		class="org.springframework.web.servlet.view.BeanNameViewResolver" />
+	<bean id="tilesviewResolver"
+		class="org.springframework.web.servlet.view.tiles3.TilesViewResolver" />
 	<bean id="viewResolver2"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/view/" />
@@ -31,9 +52,12 @@
 
 	<mvc:annotation-driven>
 		<mvc:message-converters>
-			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
+			<bean
+				class="org.springframework.http.converter.StringHttpMessageConverter">
 				<property name="supportedMediaTypes">
-					<list><value>text/html;charset=UTF-8</value></list>
+					<list>
+						<value>text/html;charset=UTF-8</value>
+					</list>
 				</property>
 			</bean>
 		</mvc:message-converters>
